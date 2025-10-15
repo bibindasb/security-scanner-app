@@ -1,5 +1,6 @@
 # backend/app/ai/ollama_provider.py
 import ollama
+import json
 from typing import Dict, Any, List
 from .base import AIProvider
 
