@@ -15,9 +15,9 @@ class AIManager:
             try:
                 self.providers['openrouter'] = OpenRouterProvider(
                     api_key=settings.OPENROUTE_API_KEY,
-                    model="meta-llama/llama-2-70b-chat"
+                    model=settings.OPENROUTE_MODEL
                 )
-                print("✅ OpenRouter provider initialized")
+                print(f"✅ OpenRouter provider initialized with model: {settings.OPENROUTE_MODEL}")
             except Exception as e:
                 print(f"⚠️  Failed to initialize OpenRouter provider: {str(e)}")
         
@@ -26,9 +26,9 @@ class AIManager:
             try:
                 self.providers['gemini'] = GeminiProvider(
                     api_key=settings.GEMINI_API_KEY,
-                    model="gemini-pro"
+                    model=settings.GEMINI_MODEL
                 )
-                print("✅ Gemini provider initialized")
+                print(f"✅ Gemini provider initialized with model: {settings.GEMINI_MODEL}")
             except Exception as e:
                 print(f"⚠️  Failed to initialize Gemini provider: {str(e)}")
         
@@ -37,9 +37,9 @@ class AIManager:
             try:
                 self.providers['openrouter'] = OpenRouterProvider(
                     api_key=settings.OPENROUTE_API_KEY,
-                    model="meta-llama/llama-2-70b-chat"
+                    model=settings.OPENROUTE_MODEL
                 )
-                print("✅ OpenRouter provider initialized as fallback")
+                print(f"✅ OpenRouter provider initialized as fallback with model: {settings.OPENROUTE_MODEL}")
             except Exception as e:
                 print(f"⚠️  Failed to initialize OpenRouter fallback: {str(e)}")
         

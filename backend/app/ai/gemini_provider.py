@@ -72,7 +72,15 @@ class GeminiProvider(AIProvider):
                 if "candidates" not in data or not data["candidates"]:
                     raise Exception("No candidates in Gemini response")
                 
-                ai_response = data["candidates"][0]["content"]["parts"][0]["text"]
+                candidate = data["candidates"][0]
+                if "content" not in candidate:
+                    raise Exception("No content in Gemini candidate")
+                
+                content = candidate["content"]
+                if "parts" not in content or not content["parts"]:
+                    raise Exception("No parts in Gemini content")
+                
+                ai_response = content["parts"][0]["text"]
                 analysis = self._parse_response(ai_response)
                 return analysis
                 

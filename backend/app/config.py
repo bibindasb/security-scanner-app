@@ -20,8 +20,11 @@ class Settings(BaseSettings):
     
     # AI Settings
     OPENROUTE_API_KEY: Optional[str] = None
+    OPENROUTE_MODEL: str = "meta-llama/llama-2-70b-chat"
     GEMINI_API_KEY: Optional[str] = None
+    GEMINI_MODEL: str = "gemini-2.5-flash"
     OPENAI_API_KEY: Optional[str] = None
+    OPENAI_MODEL: str = "gpt-3.5-turbo"
     
     # Scanner Settings
     MAX_SCAN_DURATION: int = 300
