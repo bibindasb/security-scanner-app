@@ -19,9 +19,9 @@ class Settings(BaseSettings):
     CORS_ORIGINS: List[str] = ["http://localhost:3000", "http://frontend:3000"]
     
     # AI Settings
-    OLLAMA_BASE_URL: str = "http://ollama:11434"
-    OPENAI_API_KEY: Optional[str] = None
     OPENROUTE_API_KEY: Optional[str] = None
+    GEMINI_API_KEY: Optional[str] = None
+    OPENAI_API_KEY: Optional[str] = None
     
     # Scanner Settings
     MAX_SCAN_DURATION: int = 300
