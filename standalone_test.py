@@ -239,6 +239,10 @@ async def main():
         return False
 
 if __name__ == "__main__":
+    # Load environment variables from .env file
+    from dotenv import load_dotenv
+    load_dotenv()
+    
     # Set up environment for testing
     os.environ.setdefault("OPENROUTE_API_KEY", "")
     os.environ.setdefault("GEMINI_API_KEY", "")
