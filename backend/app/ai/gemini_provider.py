@@ -5,7 +5,7 @@ from typing import Dict, Any, List
 from .base import AIProvider
 
 class GeminiProvider(AIProvider):
-    def __init__(self, api_key: str, model: str = "gemini-pro"):
+    def __init__(self, api_key: str, model: str = "gemini-2.5-flash"):
         self.api_key = api_key
         self.model = model
         self.base_url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
