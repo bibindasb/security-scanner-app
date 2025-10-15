@@ -60,10 +60,11 @@ async def run_security_scan(scan_id: str, target_url: str, db: Session):
         
         # Save findings
         for finding_data in findings_data:
+            # Remove id from finding_data if it exists to avoid conflicts
+            finding_data_clean = {k: v for k, v in finding_data.items() if k != 'id'}
             finding = Finding(
-                id=str(uuid.uuid4()),
                 scan_id=scan_id,
-                **finding_data
+                **finding_data_clean
             )
             db.add(finding)
         
