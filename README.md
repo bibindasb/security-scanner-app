@@ -31,21 +31,23 @@ cd security-scanner
 
 ### 2. Set Up Environment Variables
 
-Create a `.env` file in the root directory:
-
+**Option A: Use the setup script (Recommended)**
 ```bash
-# AI Provider API Keys (choose one or both)
-OPENROUTE_API_KEY=your_openrouter_api_key_here
-GEMINI_API_KEY=your_gemini_api_key_here
+python3 setup_api_keys.py
+```
 
-# Optional: OpenAI API Key
-OPENAI_API_KEY=your_openai_api_key_here
+**Option B: Manual setup**
+```bash
+# Copy the example environment file
+cp .env.example .env
 
-# Security
-SECRET_KEY=your-secret-key-change-in-production
+# Edit the .env file with your actual API keys
+nano .env
 ```
 
 ### 3. Get API Keys
+
+**You need at least one AI provider API key for the application to work:**
 
 #### OpenRouter (Recommended)
 1. Visit [OpenRouter.ai](https://openrouter.ai/)
@@ -57,7 +59,21 @@ SECRET_KEY=your-secret-key-change-in-production
 2. Create a new API key
 3. Add to `.env` file
 
-### 4. Start the Application
+### 4. Test Your Setup
+
+Before starting the application, test your API keys:
+
+```bash
+# Test API keys and configuration
+python3 standalone_test.py
+```
+
+This will verify:
+- ✅ File structure is correct
+- ✅ Docker configuration is valid
+- ✅ API keys are working (if provided)
+
+### 5. Start the Application
 
 ```bash
 docker-compose up -d
@@ -68,12 +84,12 @@ The application will be available at:
 - Backend API: http://localhost:8000
 - API Documentation: http://localhost:8000/docs
 
-### 5. Verify Installation
+### 6. Verify Installation
 
 Run the integration test:
 
 ```bash
-python test_integration.py
+python3 test_integration.py
 ```
 
 ## 📊 Scanner Improvements
